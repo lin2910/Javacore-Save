@@ -41,7 +41,7 @@ public class Main {
         try (ZipOutputStream zout =
                      new ZipOutputStream(new FileOutputStream(zipPath))) {
             for (int i = 0; i < filesPath.length; i++) {
-                String filename = "packed_save" + i + ".txt";
+                String filename = "packed_save" + i + ".dat";
                 ZipEntry entry = new ZipEntry(filename);
                 zout.putNextEntry(entry);
 
@@ -69,8 +69,6 @@ public class Main {
         boolean flag = true;
         try {
             for (File item : dir.listFiles()) {
-                System.out.println(item.getPath());
-                System.out.println(zipPart);
                 if (!item.getPath().equals(zipPart))
                     if (!item.delete())
                         flag = false;
@@ -81,6 +79,4 @@ public class Main {
             return false;
         }
     }
-
-
 }
